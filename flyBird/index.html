@@ -18,6 +18,9 @@
         <div id="grassLand1"></div>
         <div id="grassLand2"></div>
     </div>
+    <script src="./js/bird.js"></script>
+    <script src="./js/baseObj.js"></script>
+    <script src="./js/block.js"></script>
     <script>
         // 拿到这个标题的dom结构
         //设置该dom结构的top值
@@ -37,7 +40,6 @@
         if(index == 2){
             index = 0
         }
-
         }
         //草地动画
         var jsGrassLand1 = document.getElementById('grassLand1')
@@ -59,6 +61,13 @@
             jsHeadTitle.style.display = 'none'
             jsStartBtn.style.display = 'none'
             clearInterval(headWaveTimer)
+            //插入小鸟到页面中
+            bird.showBird(jsWrapBg)
+            bird.flyBird()
+            bird.wingWave()
+            jsWrapBg.onclick = function(){
+                bird.fallSpeed = -8
+            }
         }
     </script>
 </body>
