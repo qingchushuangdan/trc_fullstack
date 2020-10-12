@@ -27,6 +27,10 @@
         var jsWrapBg = document.getElementById('wrapBg');
         var jsHeadTitle = document.getElementById('headTitle');
         var jsHeadBird = document.getElementById('headBird');
+        var blockArr = []
+        var blockDistance = baseObj.randomNum(120, 350)
+
+        
         var Y = 3 //标题的摆动幅度
         var index = 0
         var imgArr = ['img/bird0.png','img/bird1.png']
@@ -39,12 +43,12 @@
         jsHeadBird.src = imgArr[index++]
         if(index == 2){
             index = 0
-        }
+            }
         }
         //草地动画
         var jsGrassLand1 = document.getElementById('grassLand1')
         var jsGrassLand2 = document.getElementById('grassLand2')
-        setInterval(landRun,30)
+        var landTimer = setInterval(landRun,30)
         function landRun(){
             if(jsGrassLand1.offsetLeft <= -343){
                 jsGrassLand1.style.left = '343px'
@@ -53,7 +57,26 @@
                 jsGrassLand2.style.left = '343px'
             }
             jsGrassLand1.style.left = jsGrassLand1.offsetLeft - 3 + 'px'
-            jsGrassLand2.style.left = jsGrassLand2.offsetLeft - 3 + 'PX'
+            jsGrassLand2.style.left = jsGrassLand2.offsetLeft - 3 + 'px'
+            //管道移动
+           if (blockArr.length) {
+                for (var i = 0; i < blockArr.length; i++){
+                blockArr[i].moveBlock()
+                var x = baseObj.rectangleCrashExamine(blockArr[i].downDivWrap, bird.div)
+                var y = baseObj.rectangleCrashExamine(blockArr[i].upDivWrap, bird.div)
+                var z = bird.div.offsetTop >= 390
+                if (x || y || z) {
+                    clearInterval(landTimer)
+                    jsWrapBg.onclick = null
+                    bird.fallSpeed = 0
+                }
+            }
+            if (blockArr[blockArr.length - 1].downDivWrap.offsetLeft < (450 - blockDistance)) {
+                var newBlock = new Block()
+                newBlock.createBlock()
+                blockArr.push(newBlock)
+                }
+            }
         }
         //开始按钮
         var jsStartBtn = document.getElementById('startBtn')
@@ -68,6 +91,11 @@
             jsWrapBg.onclick = function(){
                 bird.fallSpeed = -8
             }
+            //出现管道
+            var b = new Block()//实例化
+            b.createBlock()
+            blockArr.push(b)
+
         }
     </script>
 </body>
