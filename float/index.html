@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            font-size: 0;
+            list-style: none;
+            overflow: hidden;
+            /* float: left; */
+        }
+        .wrap{
+            background-color: red;
+
+        }
+        .item{
+            width: 100px;
+            height: 100px;
+            background: pink;
+            text-align: center;
+            line-height: 100px;/*行内元素不能设置宽高 */
+            /* display: inline-block; */
+            font-size: 16px;
+            float: left;
+        }
+        .last{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            /* display: inline-block;
+            vertical-align: middle; */
+        }
+        /* .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+            
+        } */
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="clearfix">
+            <li class="item">1</li>
+            <li class="item">2</li>
+            <li class="item">3</li>
+            <li class="item">4</li>
+            <!-- <li style="clear:both"></li> -->
+            <!-- 1.在浮动的末尾添加一个没用的东西来清理浮动 -->
+        </ul>
+        <div class="last">5</div>
+    </div>
+</body>
+</html>
