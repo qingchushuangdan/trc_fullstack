@@ -2,6 +2,8 @@
   margin 0
   padding 0
 
+#toast
+  display none
 .movie
   width 100%
   &-head
@@ -18,3 +20,66 @@
     .title
       flex 1
       text-align center
+  &-info
+    padding 10px
+    background-color #000000
+    &_desc 
+      width 100%
+      display flex
+      .info-pic
+        width 122px
+        height 165px
+        overflow hidden
+        img
+          width 100%
+      .info-container
+        flex 1
+        color #9b9da2
+        font-size 12px
+        margin-left 10px
+        .name
+          color #ffffff
+          font-size 24px
+          font-family Arial, sans-serif
+          font-weight normal
+        .type
+          span
+            width 40px
+            height 14px
+            display inline-block
+            background url('https://s0.meituan.net/bs/myfe/canary/file/asgard/images/movie/movie-tag-2DIMAX.png')
+            background-size cover
+            vertical-align middle
+        .btn-wrap
+          display flex
+          .flex
+            flex 1
+            text-align center
+            border-radius 5px
+            background-color #58575d
+            margin 10px 10px 10px 0
+            line-height 35px
+            color white
+            // &:nth-child(2)
+            //   margin-left 10px
+            .iconfont
+              font-size 14px
+    &_rate
+      background-color #16151b
+      color #ffffff
+      margin-top 12px
+      border-radius 5px
+      padding 10px
+      .rate-title
+        display flex
+        .rate-title_left
+          flex 1
+        .rate-title_right
+          flex 1
+
+
+
+            
+
+          
+      

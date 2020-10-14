@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
+#toast {
+  display: none;
+}
 .movie {
   width: 100%;
 }
@@ -21,4 +24,71 @@
 .movie-head .title {
   flex: 1;
   text-align: center;
+}
+.movie-info {
+  padding: 10px;
+  background-color: #000;
+}
+.movie-info_desc {
+  width: 100%;
+  display: flex;
+}
+.movie-info_desc .info-pic {
+  width: 122px;
+  height: 165px;
+  overflow: hidden;
+}
+.movie-info_desc .info-pic img {
+  width: 100%;
+}
+.movie-info_desc .info-container {
+  flex: 1;
+  color: #9b9da2;
+  font-size: 12px;
+  margin-left: 10px;
+}
+.movie-info_desc .info-container .name {
+  color: #fff;
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+}
+.movie-info_desc .info-container .type span {
+  width: 40px;
+  height: 14px;
+  display: inline-block;
+  background: url("https://s0.meituan.net/bs/myfe/canary/file/asgard/images/movie/movie-tag-2DIMAX.png");
+  background-size: cover;
+  vertical-align: middle;
+}
+.movie-info_desc .info-container .btn-wrap {
+  display: flex;
+}
+.movie-info_desc .info-container .btn-wrap .flex {
+  flex: 1;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #58575d;
+  margin: 10px 10px 10px 0;
+  line-height: 35px;
+  color: #fff;
+}
+.movie-info_desc .info-container .btn-wrap .flex .iconfont {
+  font-size: 14px;
+}
+.movie-info_rate {
+  background-color: #16151b;
+  color: #fff;
+  margin-top: 12px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.movie-info_rate .rate-title {
+  display: flex;
+}
+.movie-info_rate .rate-title .rate-title_left {
+  flex: 1;
+}
+.movie-info_rate .rate-title .rate-title_right {
+  flex: 1;
 }
