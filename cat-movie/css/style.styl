@@ -1,7 +1,8 @@
 *
   margin 0
   padding 0
-
+ul li
+  list-style none
 #toast
   display none
 .movie
@@ -21,7 +22,7 @@
       flex 1
       text-align center
   &-info
-    padding 10px
+    padding 15px
     background-color #000000
     &_desc 
       width 100%
@@ -65,17 +66,116 @@
             .iconfont
               font-size 14px
     &_rate
-      background-color #16151b
-      color #ffffff
-      margin-top 12px
-      border-radius 5px
+      background-color #000
+      // color #ffffff
+      margin-top 15px
+      border-radius 4px
       padding 10px
       .rate-title
         display flex
-        .rate-title_left
-          flex 1
-        .rate-title_right
-          flex 1
+        font-size 14px
+        justify-content space-between
+        &_left
+          color #ffffff
+          .icon-maoyan1
+            color red
+        &_right
+          color #68686b
+          font-size 10px
+      .rate-detail
+        display flex
+        &_left
+          flex 454
+          display flex
+          .grade
+            // margin-left 23px
+            text-align center
+            h2
+              color #fcc300
+            p
+              color #68686b
+          .star
+            display flex
+            align-items center
+            // margin-right 23px
+            text-align right
+            .list
+              margin 2px 0
+              display flex
+              align-items center
+            .star-num
+                font-size 0
+                width 40px
+                // vertical-align middle
+              img 
+                  width 8px
+                  height 8px
+            .persent   
+              width 76px 
+              height 4px
+              background-color #252528
+              position relative
+              .persent-val
+                display block
+                position absolute
+                left 0
+                top 0
+                height 100%
+                background-color #fcc300
+                width 80%
+        &_right
+          flex 266
+          display flex
+          align-items center//y居中
+          img 
+            height 46px
+  &-desc
+    padding 15px
+    font-size 15px
+    .content
+      overflow auto
+      transition all 1s ease//过度动画
+    .line-clamp
+      display -webkit-box
+      -webkit-box-orient vertical
+      -webkit-line-clamp 3
+      word-wrap break-word
+      word-break break-all
+      overflow hidden
+    .arrow
+      text-align center
+      .iconfont
+        display block
+        transform rotateZ(0deg)
+        transition all 1s ease
+      .up
+        display block
+        transform rotate(180deg)
+  &-img
+    border-top 1px solid #d9d9d9 
+    img
+      width 100%
+  &-actors
+    padding 5px 15px 15px 15px
+    ul
+      display flex
+      width 100%
+      overflow hidden
+      .left-margin
+        padding-right 6px
+        .name
+          display block
+          text-align center
+          font-size 16px
+        .role
+          display block
+          text-align center
+          font-size 14px
+          color #979797
+
+     
+
+
 
 
 
