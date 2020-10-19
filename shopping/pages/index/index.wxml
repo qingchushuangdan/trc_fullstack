@@ -1,0 +1,33 @@
+<!-- pages/index/index.wxml -->
+<view class="main">
+  <swiper autoplay="{{true}}" interval="{{interval}}" circular="{{true}}" duration="{{duration}}" indicator-dots="{{true}}" indicator-active-color="#fff">
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}"> 
+      <swiper-item>
+        <image class="slide-image" src="{{item}}"/>     
+      </swiper-item>  
+    </block>
+  </swiper>
+  <view class="selected">
+    <view class="selected-title">
+      <text>精选主题</text>
+    </view>
+    <view class="select-top">
+      <view class="select-top-small">
+        <navigator url="../list/list">
+          <image src="/image/s1.png"/>
+        </navigator>  
+      </view>
+      <view class="select-top-small">
+        <navigator url="../list/list">
+          <image src="/image/s2.png"/>
+        </navigator>  
+      </view>
+    </view>
+    <view class="select-bottom">
+      <navigator url="../list/list">
+        <image src="/image/s3.png" />
+      </navigator>
+        
+    </view>
+  </view>
+</view>
