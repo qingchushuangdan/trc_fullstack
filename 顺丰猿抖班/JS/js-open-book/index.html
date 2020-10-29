@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            overflow: hidden;
+            color: #fff;
+            -webkit-perspective: 1000;
+            perspective: 1000;
+            /* background-image: url(./img/dhl3.jpg); */
+            background-repeat: no-repeat;
+
+            background-color: #444444;
+            /* background-image: -webkit-linear-gradient(top, #444444, #999999); */
+        }
+
+        .book {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -150px;
+            -webkit-transform: rotateX(60deg);
+            transform: rotateX(60deg);
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .page {
+            width: 300px;
+            height: 300px;
+            padding: 1em;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-indent: 2em;
+            overflow: hidden;
+        }
+
+        .front {
+            /* background-color: #d93e2b; */
+            background-image: url(./img/dhl3.jpg);
+
+
+
+        }
+
+        .back {
+            background-color: #fff;
+        }
+
+        .front-cover {
+            cursor: move;
+            transform: rotateY(0deg);
+            transform-origin: 0 50%;
+        }
+
+        .front-cover .back {
+            background-image: url(./img/dhl3.jpg);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            transform: translateZ(3px);
+        }
+
+        .book-cover .back {
+            transform: translateZ(-3px);
+        }
+
+        .p3d {
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+        }
+
+        .flip {
+            transform: rotateY(180deg);
+        }
+
+        .shadow,
+        .dino {
+            width: 196px;
+            height: 132px;
+            position: absolute;
+            left: 60px;
+            top: 60px;
+            transform-origin: 0 100%;
+        }
+
+        .dino {
+            background: url(./img/dhl3.jpg);
+            background-size: cover;
+        }
+
+        .shadow {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* h2{
+            text-indent: 0;
+            font-size: 20px;
+        } */
+        p {
+            font-size: 18px;
+            color: cornsilk;
+            font-family:sans-serif;
+        }
+
+        .p1 {
+            text-indent: 0;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+
+        .f {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -9999;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            -webkit-transition: 1s opacity;
+            transition: 1s opacity;
+            background-color: skyblue;
+
+
+        }
+
+        .v {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -10000;
+            background-color: skyblue;
+
+
+
+        }
+
+        .v:before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: -1000;
+            top: 0;
+            left: 0;
+            background: rgba(90, 20, 10, .2);
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="v">
+        <video class="f" id="bgvid" playsinline="" autoplay muted loop="">
+            <source
+                src="https://img-baofun.zhhainiao.com/pcwallpaper_ugc/preview/ccb89842e4d47419d7339c665f7eb376_preview.mp4"
+                type="video/mp4">
+        </video>
+    </div>
+    <div class="book p3d">
+        <div class="book-cover p3d">
+            <div class="page back flip"></div>
+            <div class="page front p3d">
+                <div class="shadow"></div>
+                <div class="dino"></div>
+            </div>
+        </div>
+        <div class="front-cover p3d">
+            <div class="page front flip p3d">
+                <!-- <p class="p1">To: 丁洪林</p> -->
+                <br>
+                <p>虽然每个人都不知道未来，但一定要朴素地生活，对所有热爱的事情都要不遗余力。</p>
+                <p>做自己喜欢的事情，并且，穷尽一切可能把它做好，知道自己要去哪里，全世界都会为你让路。</p>
+                <p>即使世界偶尔凉薄，内心也要繁花似锦。</p>
+            </div>
+
+            <div class="page back"></div>
+        </div>
+    </div>
+    <script>
+        (function (window, document) {
+            // 自值型函数/立即执行函数
+            var prefiex = ['webkit', 'Moz', 'ms', 'o'],
+                book = document.querySelectorAll('.book')[0],
+                page = document.querySelectorAll('.front-cover')[0],
+                dino = document.querySelectorAll('.dino')[0],
+                shadow = document.querySelectorAll('.shadow')[0],
+                centerPoint = window.innerWidth / 2,
+                hold = false,
+                clamp = function (val, min, max) {
+                    return Math.max(min, Math.min(val, max))
+                },
+                pageSize = 300;
+            //鼠标按下的事件
+            page.onmousedown = function () {
+                hold = true
+            }
+            //鼠标放开的事件
+            window.onmouseup = function () {
+                if (hold) {
+                    hold = false
+                }
+            }
+            //在窗口调整大小的时候执行的事件
+            window.onresize = function () {
+                centerPoint = window.innerWidth / 2
+            }
+            //鼠标移动时候执行的事件
+            window.onmousemove = function (event) {
+                if (!hold) {
+                    return;
+                }
+                // console.log(event)
+                var angle = clamp((centerPoint - event.pageX + pageSize) / pageSize * -90, -180, 0),
+                    i, j;
+                for (i = 0, j = prefiex.length; i < j; i++) {
+                    page.style[prefiex[i] + 'Transform'] = `rotateY(${angle}deg)`
+                    dino.style[prefiex[i] + 'Transform'] = `rotateX(${angle / 2 + 40}deg)`
+                    book.style[prefiex[i] + 'Transform'] = `rotateX(${60 + angle / 8}deg)`
+                    shadow.style[prefiex[i] + 'Transform'] = `translateZ(1px) skewX(${angle / 8}deg)`
+                }
+            }
+        })(window, document)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+<block wx:for="{{products}}" wx:key="index">
+	<van-button type="default">默认按钮</van-button>
+	<view>{{item.title}}</view>
+	<view>{{item.view}}</view>
+	<view>{{item.color}}</view>
+	<image src="{{item.image}}" />
+</block>
+

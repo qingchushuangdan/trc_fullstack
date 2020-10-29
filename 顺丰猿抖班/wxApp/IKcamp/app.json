@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/flex/flex",
+    "pages/list/list"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#09ba07",
+    "navigationBarTitleText": "牛刀小试",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uoloadFile": 10000,
+    "downLoadFile": 10000
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/flex/flex",
+        "text": "布局"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "布局"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,188 @@
+*
+  margin 0
+  padding 0
+ul li
+  list-style none
+#toast
+  display none
+.movie
+  width 100%
+  &-head
+    width 100%
+    height 40px
+    line-height 40px
+    background-color #1e2025
+    color #ffffff
+    padding 0 10px
+    box-sizing border-box
+    display flex
+    .iconfont
+      width 16px
+    .title
+      flex 1
+      text-align center
+  &-info
+    padding 15px
+    background-color #000000
+    &_desc 
+      width 100%
+      display flex
+      .info-pic
+        width 122px
+        height 165px
+        overflow hidden
+        img
+          width 100%
+      .info-container
+        flex 1
+        color #9b9da2
+        font-size 12px
+        margin-left 10px
+        .name
+          color #ffffff
+          font-size 24px
+          font-family Arial, sans-serif
+          font-weight normal
+        .type
+          span
+            width 40px
+            height 14px
+            display inline-block
+            background url('https://s0.meituan.net/bs/myfe/canary/file/asgard/images/movie/movie-tag-2DIMAX.png')
+            background-size cover
+            vertical-align middle
+        .btn-wrap
+          display flex
+          .flex
+            flex 1
+            text-align center
+            border-radius 5px
+            background-color #58575d
+            margin 10px 10px 10px 0
+            line-height 35px
+            color white
+            // &:nth-child(2)
+            //   margin-left 10px
+            .iconfont
+              font-size 14px
+    &_rate
+      background-color #000
+      // color #ffffff
+      margin-top 15px
+      border-radius 4px
+      padding 10px
+      .rate-title
+        display flex
+        font-size 14px
+        justify-content space-between
+        &_left
+          color #ffffff
+          .icon-maoyan1
+            color red
+        &_right
+          color #68686b
+          font-size 10px
+      .rate-detail
+        display flex
+        &_left
+          flex 454
+          display flex
+          .grade
+            // margin-left 23px
+            text-align center
+            h2
+              color #fcc300
+            p
+              color #68686b
+          .star
+            display flex
+            align-items center
+            // margin-right 23px
+            text-align right
+            .list
+              margin 2px 0
+              display flex
+              align-items center
+            .star-num
+                font-size 0
+                width 40px
+                // vertical-align middle
+              img 
+                  width 8px
+                  height 8px
+            .persent   
+              width 76px 
+              height 4px
+              background-color #252528
+              position relative
+              .persent-val
+                display block
+                position absolute
+                left 0
+                top 0
+                height 100%
+                background-color #fcc300
+                width 80%
+        &_right
+          flex 266
+          display flex
+          align-items center//y居中
+          img 
+            height 46px
+  &-desc
+    padding 15px
+    font-size 15px
+    .content
+      overflow auto
+      transition all 1s ease//过度动画
+    .line-clamp
+      display -webkit-box
+      -webkit-box-orient vertical
+      -webkit-line-clamp 3
+      word-wrap break-word
+      word-break break-all
+      overflow hidden
+    .arrow
+      text-align center
+      .iconfont
+        display block
+        transform rotateZ(0deg)
+        transition all 1s ease
+      .up
+        display block
+        transform rotate(180deg)
+  &-img
+    border-top 1px solid #d9d9d9
+    img 
+      width 100%
+  &-actors
+    padding 5px 15px 15px 15px
+    ul
+      display flex
+      width 100%
+      overflow hidden
+      overflow-x scroll
+      // &::-wekbit-scrollbar
+      // display none
+      .left-margin
+        margin-right 6px
+        .name
+          display block
+          text-align center
+          font-size 16px
+        .role
+          display block
+          text-align center
+          font-size 14px
+          color #979797
+
+     
+
+
+
+
+
+            
+
+          
+      

@@ -9,5 +9,5 @@ const swap = function(nums){
         nums[k++] = 0;        
     }  
 }
-swap([0,1,0,3,12]);
+console.log(swap([0,1,0,3,12]));
 
