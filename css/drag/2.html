@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //回文
+        //上海自来水来自海上
+        // true
+        // false
+        var isValid = function(str) {
+            // 0 len - 1
+            // 1 len - 2
+            // 2 len - 3
+            let i = 0, j = str.length - 1;
+            while(i < j){
+                // 是不是 数字？ 字母？
+                // 忽视
+                if(!/[0-9a-zA-Z]/.test(str[i])){
+                    i ++;
+                    continue;//跳过下面
+                }
+                if(!/[0-9a-zA-Z]/.test(str[j])){
+                    j --;
+                    continue;//跳过下面
+                }
+                let left = str[i], right = str[j];
+                if ( left.toLowerCase() !== right.toLowerCase()) return false;
+                i ++;
+                j --;
+            }
+            return true;
+        }
+        // console.log(isValid('上海自来水来自海上'));
+    </script>
+</body>
+</html>
