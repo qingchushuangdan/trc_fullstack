@@ -113,7 +113,7 @@
     opacity: 0.66;
 }
 .body-one_right{
-    width: 568px;
+    width: 779px;
     height: 993px;
     background-color: #ededed;
 }
@@ -158,6 +158,7 @@
     letter-spacing: 2px;
     color: #282828;
     padding-top: 20px;
+    margin: 0 auto;
 }
 .photo, .plane, .bulb{
     width: 89px;
@@ -198,17 +199,207 @@
 }
 .body-three_right{
     flex: 703;
-}
+} 
 .body-three_triangle{
     margin-top: -110px;
     width: 0;
     height: 0;
-    border-bottom: 754px solid #fb8686;
-    border-right: 754px solid transparent;
+    border-bottom: 864px solid #fb8686;
+    border-right: 864px solid transparent;
     
 }
 .macbook{
+    text-align: center; 
+    width: 864px;
+    height: 503px; 
+    margin-top: 223px;
+    margin-left: 75px;  
+}
+.body-three_content{
+    margin-top: 193px;
+    margin-left: 71px;
+    width: 674px;
+}
+.body-three_new-design_content{
+    width: 674px;
+    font-family: Exo-Medium;
+    font-size: 19px;
+    /* font-weight: 100; */
+    letter-spacing: 1px;
+    color: #282828;
+    opacity: 0.66; 
+}
+.body-three_new-design_header{
+    width: 576px;
+    font-family: Exo-Medium;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: #282828;
+}
+.body-four{
+    background-image: url(./image/back-bg.png);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 888px;
+    background-size: 100% 100%;
+}
+.body-four_round1{
+    display: flex;
+    width: 1511px;
+    padding-top: 150px;
+    text-align: center;
+    margin: 0 auto;
+    
+}
+.body-four_round1_div{
+    flex: 1; 
+}
+.body-four_round1_div>img{
+    width: 104px;
+    height: 104px;
+    /* background-color: #4e4e4e */
+}
+.body-four_round1_title{
+    font-family: Exo-Medium;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    /* padding-top: 35px; */
+}
+.body-four_round1_author{
+    font-family: Exo-Medium;
+    font-size: 21px;
+    color: #ff6d6d;
+    padding-top: 16px;
+}
+.body-four_round1_content{
+    width: 444px;
+    font-family: Exo-Medium;
+    font-size: 21px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    opacity: 0.66;
+    margin: 0 auto;
+    padding-top: 50px;
+    
+    /* text-align: center; */
+}
+.body-four_round2{
+    width: 1321px;
+    height: 116px;
+    margin: 0 auto;
+    margin-top: 144px;
+    display: flex;
+}
+.body-four_img{
+    flex: 1;
     text-align: center;
 }
+.body-four_round2_img{
+    width: 134px;
+    height: 116px;   
+}
+.body-five{
+    width: 100%;
+    /* height: 1000px; */
 
-
+}
+.body-five_round1{
+    padding-top: 148px;
+    width: 887px;
+    text-align: center;
+    margin: auto;
+}
+.body-five_newfeatures{
+    font-family: Exo-Medium;
+    font-size: 21px;
+    letter-spacing: 3px;
+    color: #ff6d6d;
+}
+.body-five_title{
+    font-family: Exo-Medium;
+    font-size: 55px;
+    letter-spacing: 2px;
+    color: #282828;
+    padding-top: 21px;
+}
+.body-five_content{
+    font-family: Exo-Medium;
+    font-size: 21px;
+    letter-spacing: 1px;
+    color: #282828;
+    opacity: 0.66;
+    padding-top: 66px;
+}
+.body-five_img{
+    text-align: center;
+    margin-top: 127px;
+}
+.body-five_img>img{
+    width: 1124px;
+    height: 514px;
+}
+.body-six{
+    width: 100P;
+    background-color: #323969;
+}
+.body-six_round{
+    width: 100%;
+    padding-top: 134px;
+    text-align: center;
+    margin: 0 auto;
+}
+.body-six_newfeatures{
+    font-family: Exo-Medium;
+    font-size: 21px;
+    letter-spacing: 3px;
+    color: #ff6d6d;
+}
+.body-six_title{
+    padding-top: 21px;
+    font-family: Exo-Medium;
+    font-size: 54px;
+    letter-spacing: 2px;
+    color: #fff;
+}
+.body-six_input{
+    padding-top: 131px;
+}
+.body-six_input>input{
+    width: 360px;
+    height: 67px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    border: solid 1px #fff;
+    opacity: 1;
+    font-family: Exo-Regular;
+    font-size: 21px;
+    letter-spacing: 1px;
+    
+    margin-left: 41px;
+    padding-left: 40px;
+    
+}
+.body-six_input>button{
+    width: 360px;
+    height: 67px;
+    background-color: #ff6d6d;
+    box-shadow: 0px 3px 3px 0px rgba(14, 15, 15, 0.25);
+    border-radius: 3px;
+    border: solid 1px #ff6d6d;
+    font-family: Exo-Regular;
+    font-size: 21px;
+    letter-spacing: 1px;
+    color: #f6f5f3;
+    
+    margin-left: 41px;
+}
+.body-six_end{
+    margin-top: 71px;
+    font-family: Exo-Regular;
+    font-size: 21px;
+    letter-spacing: 1px;
+    color: #f6f5f3;
+    opacity: 0.6;
+    padding-bottom: 116px;
+}
