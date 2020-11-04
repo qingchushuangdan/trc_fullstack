@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Person.prototype.name = '蜗牛'
+        // // new构造函数的三部曲
+        function Person(){
+            // var this = {
+            // name: 'wn'
+            //     __proto__: Person.prototype
+            // }
+            // return this
+        }
+        var person = new Person()//构造的，多了一层东西
+        // console.log(person.__proto__);
+        // var test = {}// 天生的，只有一层
+
+
+
+        // var obj = new Object()
+        var obj = { //Object
+            name: '蜗牛'
+        }
+        // console.log(obj.__proto__);
+        person.__proto__ = obj
+        console.log(person.__proto__);
+        //__proto__ 指向谁，就上谁那里找属性
+    </script>
+</body>
+</html>
