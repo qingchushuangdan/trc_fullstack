@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // // push map forEach filter reduce every some
+        // let arr = [{a: 1}, {a: 2}, {a: 3}]
+        // //[1, 2, 3]
+        // // map 映射
+        // let newArr = arr.map((item) => {
+        //     return item.a * 2
+        // })
+        // arr.map((item) => {
+        //     // console.log(item);
+        //     return item.a
+        // })
+        // 函数式
+        let arr = [{a: 1}, {a: 2}, {a: 3}]
+        let newArr = arr.map((item) => {
+            return item.a * 2
+        })
+        let arr1 = arr.map((item) => {
+            return `<li>${item.a}</li>`
+        })
+        console.log(newArr, arr1);
+        //命令式
+        arr.forEach((item) => {
+            console.log(item);
+        })
+
+        let arr2 = [1, 2, 3, 4, 5, 6];
+        // reduce 循环意思 叠加
+        // 1 pre: => 0 item: 1  => 1
+        // 2 pre: => 1 item: 2  => 3
+        // 3 pre: => 3 item: 3  => 6
+        // ...
+        // 6                    => 21
+        let sum = arr2.reduce((pre, item) => {
+            return pre + item
+        }, 0)
+
+        let arr3 = [{a: 1}, {b: 2}, {c: 3}]
+        // {a: 1, b: 2, c: 3}
+        // 1 pre: {} item: {a: 1} => {a: 1}
+        // 2 pre: {a: 1} item: {b: 2} => {a: 1, b: 2}
+        // 3 pre: {a: 1, b: 2} item {c: 3} => {a: 1, b: 2, c: 3}
+        let arr4 = arr3.reduce((pre, item) => {
+            return {
+                ...pre,
+                ...item
+            }
+            // object.assign()
+        }, {})
+    </script>
+</body>
+</html>
