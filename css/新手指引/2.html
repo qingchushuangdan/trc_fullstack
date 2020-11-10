@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .layer {
+            background-color: #000000;
+            opacity: 0.8;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>xxx的笔记</h2>
+    <div id="skill">xxx技能：JS，PHP</div>
+    <div class="layer"></div>
+    <div class="tip">
+        <button>下一步</button>
+    </div>
+    <script>
+        const tip = document.querySelector('.tip')
+        const skill = document.getElementById('skill')
+        function light(ele) {
+            ele.style.zIndex = 4
+            ele.style.position = 'relative'
+            ele.style.backgroundColor = '#fff'
+            console.log(ele.getBoundingClientRect())
+            let {left, bottom} = ele.getBoundingClientRect()
+            tip.style.position = 'fixed'
+            tip.style.zIndex = 4
+            tip.style.left = left + 10 + 'px'
+            tip.style.top = bottom + 10 + 'px'
+        }
+        light(skill)
+    </script>
+</body>
+</html>
