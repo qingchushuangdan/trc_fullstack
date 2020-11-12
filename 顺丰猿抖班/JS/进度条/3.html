@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // // 动物 => 抽象
+        // // 猫 => 具象
+        // // 类、构造函数
+        // function Animal(live, name) {
+        //     this.live = live;
+        //     this.name = name;
+        // }
+        // // 猫
+        // // 实例 (实际的例子)
+
+        // 0 - 4
+        // 完整 [1, 0, 2, 3, 4]
+        // 给你的 [0, 2, 3, 4]  => 1
+        // 0 - n 第一个和
+        // 对不完整的数组 求个第二个和
+        // 第一个和 - 求个第二个和
+        var missingNumber = function(nums) {
+            let n = nums.length
+            let sum1 = 0
+            let sum2 = 0
+            for (let i = 0; i < n + 1; i++) {
+                sum1 += i
+                sum2 += (nums[i] || 0)
+            }
+            // for (let n of nums) {
+            //     sum2 += n
+            // }
+            return sum1 - sum2
+        }
+    </script>
+</body>
+</html>
