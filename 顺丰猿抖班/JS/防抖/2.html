@@ -1,0 +1,32 @@
+<script>
+    let arr = [1, 2, 3]
+    // arr[1] arr[2]
+    // 1 -> 2 -> 3
+    let node1 = { val: 1, next: null }
+    let node2 = { val: 2, next: null }
+    let node3 = { val: 3, next: null }
+    node1.next = node2
+    node2.next = node3
+    console.log(node1);
+    // 数组存储起来是一段连续的空间，而链表是非连续的
+    // 链表 非连续
+    node3.next = node2
+    let current = node1
+    while (current) {
+        console.log(current);
+        current = current.next
+    }
+
+    var hasCycle = function (head) {
+        let current = head, map = new Map()
+        while(current) {
+            if (map.has(current)) {
+                return true
+            }
+            map.set(current, true)
+            current = current.next
+        }
+        return false
+    };
+
+</script>
