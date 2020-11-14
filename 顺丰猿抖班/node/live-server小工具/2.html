@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 200px;
+        }
+        p{
+            background-color: red;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        滴滴滴滴
+    </p>
+    <img src="https://img.alicdn.com/imgextra/i4/6000000002343/O1CN01R93eCl1TB8cPDNEc8_!!6000000002343-0-octopus.jpg" alt="">
+    <iframe src="http://www.baidu.com" frameborder="0"></iframe>
+    <script>
+        var a = 'a'
+        var c = 'c'
+        function foo() {
+            //欺骗词法作用域
+            eval('var a = "123"')
+            console.log(a);
+        }
+        function bar() {
+            var a = 'a1'
+            function baz() {
+                console.log(c);
+            }
+            foo()
+        }
+        bar()
+        //编译原理:词法分析 -> 语法分析 ->  xxx
+    </script>
+</body>
+</html>
