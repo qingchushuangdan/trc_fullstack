@@ -1,0 +1,24 @@
+<!--miniprogram/pages/bookCity/bookCity.wxml-->
+<view class="header">
+	<view class="hot">热榜推荐</view>
+	<view class="more">点击搜索更多小说</view>
+</view>
+<view
+ class="hotlist"
+ wx:for="{{hotData}}"
+ wx:key="index"
+>
+	<view class="itemleft">
+		<image class="" src="{{item.imgurl}}">
+
+		</image>
+	</view>
+	<view class="itemright">
+		<view class="authotop">
+			<text class="bookname">{{item.name}}</text>
+			<text class="autho">{{item.author}}</text>
+		</view>
+		<view class="detail">{{item.detail}}</view>
+	</view>
+</view>
+
