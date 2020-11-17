@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="id2">
+        2
+        <div id="id1">
+            1
+        </div>
+    </div>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <script>
+        // let lis = document.querySelectorAll('li')
+        // lis.forEach(ele => {
+        //   ele.addEventListener('click', ()=> {
+        //     console.log(ele.textContent);
+        //   })
+        // })
+        const ul = document.querySelector('ul')
+        ul.addEventListener('click', (event) =>{
+          console.log(event.target.textContent);
+          console.log('xxx');
+        })
+        const id1 = document.getElementById('id1')
+        const id2 = document.getElementById('id2')
+        id1.addEventListener('click', () => {
+            console.log('id1 click');
+        }, true)
+        id2.addEventListener('click', () => {
+            console.log('id2 click');
+        }, true)
+        id1.addEventListener('click', () => {
+            console.log('id1 click');
+        }, false)
+        id2.addEventListener('click', () => {
+            console.log('id2 click');
+        }, false)
+    </script>
+</body>
+<ml>
