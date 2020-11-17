@@ -1,42 +1,37 @@
-// miniprogram/pages/bookCity/bookCity.js
+// miniprogram/pages/bookSection/bookSection.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    hotData: [],
-    classifyData: []
+    bookDetailData:{}
   },
-  getList() {
+  getSection(url) {
     wx.showLoading({
       title: '正在加载'
     })
     wx.cloud.callFunction({
-      name: 'getList',
-      data: {}
+      name: 'bookSection',
+      data: {
+        url: url
+      }
     }).then(res => {
-      // console.log(res);
+      console.log(res);
       wx.hideLoading()
-      const result = res.result || {}
+      const {result} = res
       this.setData({
-        hotData: result.hotData,
-        classifyData: result.classifyData
+        bookDetailData: result.bookDetailData
       })
-      console.log(this.data.classifyData)
-    })
-  },
-  toReading(e) {
-    let url = e.currentTarget.dataset.url
-    wx.navigateTo({
-      url: `../bookSection/bookSection?url=${url}`
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getList()
+    console.log(options);
+    const {url} = options
+    this.getSection(url)
   },
 
   /**

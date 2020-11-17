@@ -1,0 +1,26 @@
+<!--miniprogram/pages/bookSection/bookSection.wxml-->
+<view class="introduce">
+	<view class="detailleft">
+		<image src="{{bookDetailData.imgurl}}" />
+	</view>
+	<view class="detailright">
+		<view>
+			<view class="name">{{bookDetailData.name}}</view>
+			<view>
+				<text>{{bookDetailData.autho}}</text>
+			</view>
+			<view>
+				<text>{{bookDetailData.status}}</text>
+			</view>
+			<view>
+				<text>{{bookDetailData.lastTime}}</text>
+			</view>
+			<view class="lastNew">
+				最新：
+				<text data-url="lastSectionUrl">{{bookDetailData.lastSection}}</text>
+			</view>
+		</view>
+	</view>
+
+</view>
+

@@ -7,6 +7,8 @@
  class="hotlist"
  wx:for="{{hotData}}"
  wx:key="index"
+ data-url="{{item.url}}"
+ bindtap="toReading"
 >
 	<view class="itemleft">
 		<image class="" src="{{item.imgurl}}">
@@ -19,6 +21,28 @@
 			<text class="autho">{{item.author}}</text>
 		</view>
 		<view class="detail">{{item.detail}}</view>
+	</view>
+</view>
+
+<!-- 推荐分类 -->
+<view
+ class="classify"
+ wx:for="{{classifyData}}"
+ wx:key="index"
+>
+	<view class="classifyname">
+		{{item.classifyList}}
+	</view>
+	<view
+	 class="classifyitem"
+	 wx:for="{{item.data}}"
+	 wx:key="{{item.url}}"
+	 wx:for-item="list"
+	 data-url="{{list.url}}"
+	 bindtap="toReading"
+	>
+		<text class="sname">{{list.name}}</text>
+		<text class="sautho">{{list.author}}</text>
 	</view>
 </view>
 
