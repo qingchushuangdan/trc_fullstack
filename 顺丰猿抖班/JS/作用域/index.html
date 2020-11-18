@@ -17,18 +17,18 @@
         foo(2)
         
     </script> -->
-    <!-- <script>
+    <script>
         // eval() 欺骗词法作用域
-        function foo(str, a){
-            eval(str)// var b = 3
-            console.log(a, b);
-        }
-        var b = 2
-        foo('var b = 3', 1)
-    </script> -->
+        // function foo(str, a){
+        //     eval(str)// var b = 3
+        //     console.log(a, b);
+        // }
+        // var b = 2
+        // foo('var b = 3', 1)
+    </script>
     
     <script>
-        //with
+        // with
         // var obj = {
         //     a: 1,
         //     b: 2,
@@ -43,21 +43,21 @@
         //     c = 5
         // }
 
-        // function foo(obj) {
-        //     with (obj) {
-        //         a = 2
-        //     }
-        // }
-        // var o1 = {
-        //     a: 3
-        // }
-        // var o2 = {
-        //     b: 3
-        // }
-        // foo(o1)
-        // foo(o2)
-        // console.log(02.a);
-        // console.log(a);
+        function foo(obj) {
+            with (obj) {
+                a = 2
+            }
+        }
+        var o1 = {
+            a: 3
+        }
+        var o2 = {
+            b: 3
+        }
+        foo(o1)
+        foo(o2)
+        console.log(02.a);
+        console.log(a);
 
         function foo(a){
             var b = 2

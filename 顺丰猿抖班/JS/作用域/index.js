@@ -34,7 +34,7 @@
 
 
 // var a = 1
-//var a;变量声明 声明提升
+// var a; //变量声明 声明提升
 // a = 1
 
 // console.log(a);

@@ -33,14 +33,14 @@
         // function fn(a){
         //     console.log(a);// function(){}
         //     var a = 123;
-        //     console.log(a);
+        //     console.log(a);//123
         //     function a() {}; //函数声明
-        //     console.log(a);
+        //     console.log(a);//123
         //     var b = function() {} //函数表达式
-        //     console.log(b);
+        //     console.log(b); //function(){}
         //     function d(){};
-        //     var d = a;
-        //     console.log(d); 
+        //     var d = a; 
+        //     console.log(d); //123
         // }
         // fn(1)
         // AO:{
@@ -68,13 +68,15 @@
         //     d:undefined function(){}
         // }
 
-        // var global = 100;
-        // function fn(){
-        //     console.log(global);
-        // }
-        // fn()
-        
+        var global = 100;
+        function fn(){
+            console.log(global);
+        }
+        fn()
+       
 
+        
+        //先到AO里面找,AO里面找不到再回GO里面找
         // GO: {
         //     global:undefined 100
         //     fn:function(){....}
@@ -92,7 +94,10 @@
             // }
             // fun()
             // var global;
-
+            // GO: {
+            // global:undefined
+            // fun: function(){}
+            // }
             // GO: {
             //     global:100 undefined
             //     fun: function(){}
