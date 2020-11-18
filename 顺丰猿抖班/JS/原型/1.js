@@ -14,4 +14,4 @@ console.log(person);
 var person1 = new Person()
 // console.log(person1.name);
 
-person.say()//调用打印hahaha
+// person.say()//调用打印hahaha
