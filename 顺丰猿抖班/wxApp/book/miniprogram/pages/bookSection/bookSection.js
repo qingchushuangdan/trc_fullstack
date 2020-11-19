@@ -1,6 +1,6 @@
 // miniprogram/pages/bookSection/bookSection.js
-const db = wx.cloud.database()
-const app = getApp()
+const db = wx.cloud.database() //连接访问数据库
+const app = getApp() // 获取 app.js里面的全局数据
 Page({
 
   /**
@@ -24,10 +24,10 @@ Page({
     wx.cloud.callFunction({
       name: 'bookSection',
       data: {
-        url: url
+        url: url //把要跳转的这个地址上传给去函数去拼接访问
       }
     }).then(res => {
-      console.log(res);
+      // console.log(res);
       wx.hideLoading()
       const {result} = res
       this.setData({
@@ -50,16 +50,17 @@ Page({
   // 上一页
   prePage(){
     if (this.data.preAble) return
-    this.getSection(this.data.pre)
+    this.getSection(this.data.pre) // 点击了上一页就跳到上一页的地址
   },
   nextPage(){
     if (this.data.nextAble) return
     this.getSection(this.data.next)
   },
   bindPickerChange(e) {
-    console.log(e.detail.value)
+    console.log(e)
     let index = parseInt(e.detail.value)
     let url = this.data.pageArray[index].name
+    console.log(url);
     console.log(url.split('/')[2])
     if (index !== this.page) {
         this.getSection(url)
@@ -70,7 +71,7 @@ Page({
 },
 // 去看小说
 navtoUrl(e){
-    console.log(e);
+    // console.log(e);
     let url = e.currentTarget.dataset.url
     // 已经存在书架的书，记录阅读状态
     if (url){
@@ -87,7 +88,7 @@ navtoUrl(e){
                 bookUrl: url
               }
             }).then(res => {
-              console.log(res)
+              // console.log(res)
             })
           }
         }
@@ -114,7 +115,7 @@ joinBook(e) {
           imgurl: this.data.bookDetailData.imgUrl
         }
       }).then( res => {
-        console.log(res)
+        // console.log(res)
         wx.showToast({
           title: '加入成功',
           icon: 'success'

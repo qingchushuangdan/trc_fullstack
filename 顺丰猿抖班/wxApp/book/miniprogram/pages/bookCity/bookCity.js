@@ -10,24 +10,25 @@ Page({
   },
   getList() {
     wx.showLoading({
-      title: '正在加载'
+      title: '正在加载' // 数据展示之前先用图标加载
     })
-    wx.cloud.callFunction({
+    wx.cloud.callFunction({ //访问云函数
       name: 'getList',
       data: {}
-    }).then(res => {
+    }).then(res => { //访问成功回调返回res
       // console.log(res);
-      wx.hideLoading()
+      wx.hideLoading() // 把加载隐藏
       const result = res.result || {}
       this.setData({
         hotData: result.hotData,
         classifyData: result.classifyData
       })
-      console.log(this.data.classifyData)
+      // console.log(this.data.classifyData)
     })
   },
   toReading(e) {
-    let url = e.currentTarget.dataset.url
+    console.log(e);
+    let url = e.currentTarget.dataset.url //event事件中有这个地址
     wx.navigateTo({
       url: `../bookSection/bookSection?url=${url}`
     })

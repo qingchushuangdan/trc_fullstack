@@ -8,7 +8,7 @@ cloud.init()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  let serverUrl = `https://wap.biqiuge8.com/${event.url}`
+  let serverUrl = `https://wap.biqiuge8.com/${event.url}` // 本地上传来的地址存在event里面，然后引用拼接成访问的地址
   const result = await superagent.get(serverUrl).charset('gb2312') //取决于网页的编码方式
   const data = result.text || ''
   const $ = cheerio.load(data)
@@ -16,7 +16,7 @@ exports.main = async (event, context) => {
   let bookDetailData = {}// 本书详情
   bookDetailData['name'] = $(bookDetail).find('.cover').find('img').attr('alt')
   bookDetailData['imgurl'] = $(bookDetail).find('.cover').find('img').attr('src');
-  bookDetailData['author'] = $(bookDetail).find('.book_box').find('.dd_box').eq(0).find('span').eq(0).text();
+  bookDetailData['author'] = $(bookDetail).find('.book_box').find('.dd_box').eq(0).find('span').eq(0).text(); // eq是相同元素选择第几个
   bookDetailData['status'] = $(bookDetail).find('.book_box').find('.dd_box').eq(1).find('span').eq(0).text();//状态
   bookDetailData['lastTime'] = $(bookDetail).find('.book_box').find('dd').eq(2).find('span').text();
   bookDetailData['lastSection'] = $(bookDetail).find('.book_box').find('dd').eq(3).find('span').find('a').text();//最新章节

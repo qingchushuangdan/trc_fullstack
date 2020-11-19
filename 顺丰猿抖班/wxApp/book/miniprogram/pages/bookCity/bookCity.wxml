@@ -36,7 +36,7 @@
 	<view
 	 class="classifyitem"
 	 wx:for="{{item.data}}"
-	 wx:key="{{item.url}}"
+	 wx:key="index"
 	 wx:for-item="list"
 	 data-url="{{list.url}}"
 	 bindtap="toReading"
