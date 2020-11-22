@@ -37,7 +37,7 @@ exports.main = async (event, context) => {
     for (let j = 0; j < childDom.length; j++) { //内部循环
       let childObj = {}
       childObj['name'] = $(childDom[j]).find('.s2').find('a').text()
-      // childObj['name'] = $(childDom[j]).find('.s2').find('a').text()
+      childObj['url'] = $(childDom[j]).find('.s2').find('a').attr('href')
       childObj['author'] = $(childDom[j]).find('.s3').text()
       childData.push(childObj)
     }
