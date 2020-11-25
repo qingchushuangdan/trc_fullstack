@@ -1,0 +1,63 @@
+<script>
+  let p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, 3000)
+  })
+  async function run() {
+    await p
+    return true
+  }
+  // async 返回的是promise
+  // run().then((r) => {
+  //   console.log(r);
+  // })
+  async function bar() {
+    await run()
+    console.log(1, r);
+  }
+  Promise.all([run(), bar(), p])
+  Promise.race([])
+  // 给你五个CDN厂商，一张图片。你怎么测出这五个CDN厂商哪个比较快
+  // 1: 图片加载速度 onLoad date(时间戳相减)
+  // Promise
+  function req(url) {
+    return new Promise((resolve, reject) => {
+      let img = new Image()
+      img.src = url
+      img.onload = function () {
+        resolve(url)
+      }
+      img.onerror = function () {
+        reject()
+      }
+    })
+  }
+  let arr = [
+    req('https://img.alicdn.com/tfs/TB1FjZ7VWL7gK0jSZFBXXXZZpXa-520-280.png'),
+    req('https://img12.360buyimg.com/pop/s590x470_jfs/t1/123551/25/18955/90317/5fb48dfeEc54fbc44/a9d52bea957c466b.jpg.webp')
+
+  ]
+  Promise.race(arr).then(r => {
+    console.log(r);
+  })
+
+  let list = {
+    val: 1
+  }
+  function reverseList(head) {
+    // 1 2 3
+    // 循环一下
+    let p = head
+    let pre = null
+    while (p) {
+      let next = p.next
+      // 本次循环 修改指向
+      p.next = pre
+      // 上面的next修改完毕 走到下一个 修改下一个
+      pre = p
+      p = next
+    }
+    return pre
+  }
+</script>
