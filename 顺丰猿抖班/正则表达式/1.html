@@ -49,6 +49,18 @@
   // YYYY-MM-DD
 
   
-  let dateReg = /^([0-9]{4,})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
-  console.log(dateReg.test('2020-03-33'));
+  // let dateReg = /^([0-9]{4,})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/
+  // console.log(dateReg.test('2020-03-33'));
+
+  let reg5 = /a/g
+  let str = 'aaa';
+  // lastIndex 每次最后一个位置
+  console.log(reg5.test(str));
+  console.log(reg5.test(str));
+  console.log(reg5.test(str));
+  console.log(reg5.lastIndex);
+  console.log(reg5.test(str)); // 从 3 开始往后匹配
+  // 3 后面没内容 false
+  console.log(reg5.test(str));
+  console.log(/a/g.test(str));
 </script>

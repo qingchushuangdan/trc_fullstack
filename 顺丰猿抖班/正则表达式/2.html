@@ -1,0 +1,29 @@
+<script>
+  let html = `
+  <div>
+    {{name}}
+    <p>
+      {{age}}
+    </p>
+  </div>
+  `
+  let obj = {
+    name: '小米', age: 19
+  }
+  // {{}} 内容 提取出来
+  function compiler(str, obj) {
+    let reg = /{{[a-z]{1,}}}/g;
+    let info = reg.exec(str)
+    while(info) {
+      console.log(info);
+      // infp = [{{name}}, name]
+      let k = info[1]
+      let v = obj[k]
+      str = str.replace(info[0], v)
+      info = reg.exec(str)
+    }
+    return str
+  }
+  let res = compiler(html, obj)
+  compiler(res)
+</script>
