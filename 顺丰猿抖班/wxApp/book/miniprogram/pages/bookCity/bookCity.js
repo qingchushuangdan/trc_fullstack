@@ -23,7 +23,7 @@ Page({
         hotData: result.hotData,
         classifyData: result.classifyData
       })
-      console.log(this.data.classifyData)
+      // console.log(this.data.classifyData)
     })
   },
   toReading(e) {

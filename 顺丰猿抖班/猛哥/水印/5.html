@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <span>
+      <h2></h2>
+    </span>
+    <h2></h2>
+  </div>
+  <script>
+    const app = document.getElementById('app')
+    // app 里面 h2 标签有几个
+    // app 里面 以h 开头 的标签 有几个
+    let nodes = document.querySelectorAll('h2')
+    console.log(nodes);
+    // html -> 字符串 -> 正则
+    console.log(app.innerHTML);
+    let str = app.innerHTML
+    let reg = /^<h/g
+    console.log(1, ...str.matchAll(reg));
+    // app.childNodes
+    function findH(parent) {
+      console.log(parent);
+      if (parent.childNodes) {
+        for (let child of parent.childNodes) {
+          findH(child)
+        }
+      }
+    }
+  </script>
+</body>
+</html>

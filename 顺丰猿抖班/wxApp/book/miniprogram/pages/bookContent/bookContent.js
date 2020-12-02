@@ -99,7 +99,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log(options);
+    console.log(options);
     let { url, name, imgUrl } = options
     this.setData({ //两个单词相同的话可以省略
       url,
