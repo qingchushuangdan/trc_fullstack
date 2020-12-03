@@ -1,7 +1,5 @@
 <template>
-  <span class="support-ico" :class="iconCls">
-
-  </span>
+  <span class="support-ico" :class="iconCls"></span>
 </template>
 
 <script>
@@ -24,10 +22,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '../../common/stylus/mixin.styl';
+  @import '../../common/stylus/mixin.styl';
   .support-ico
     display inline-block
-    background-repeat no-repeat
+    background-repeat: no-repeat;
   .icon-1
     width 12px
     height 12px
