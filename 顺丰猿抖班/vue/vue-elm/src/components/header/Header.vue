@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" @click="showDetail">
     <div class="content-wrapper">
       <div class="avatar">
         <img width="64" height="64" :src="seller.avatar" alt="">
@@ -37,7 +37,7 @@
       <img :src="seller.avatar" alt="" width="100%" height="100%">
     </div>
 
-    <HeaderDetail :seller="seller"></HeaderDetail>
+    <HeaderDetail :seller="seller" v-show="detailVisible" @hide="hideDetail"></HeaderDetail>
   </div>
 </template>
 
@@ -53,9 +53,23 @@ export default {
       }
     }
   },
+  data () {
+    return {
+      detailVisible: false
+    }
+  },
   components: {
     SupportIco,
     HeaderDetail
+  },
+  methods: {
+    showDetail() {
+      this.detailVisible = true
+    },
+    hideDetail(e) {
+      console.log(e);
+      this.detailVisible = e
+    }
   }
 }
 </script>
