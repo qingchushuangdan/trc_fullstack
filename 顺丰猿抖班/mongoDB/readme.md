@@ -44,3 +44,11 @@ collection
 
 - 电商应用 
   node mongodb 的联合
+
+- 数据怎么进入数据库
+  - 先连接
+    mongodb url once('open')
+  - 对数据库建模
+    userSchema 字段名 + 类型
+    mongoose.model('User', userSchema)
+    new User.save()
