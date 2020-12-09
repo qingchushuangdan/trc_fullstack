@@ -43,7 +43,7 @@
       </div>
     </div>
     <!-- 购物车 -->
-    <ShopCart></ShopCart>
+    <ShopCart :selectFoods="selectFoods" :deliveryPrice="seller.deliveryPrice" :minPrice="seller.minPrice"></ShopCart>
   </div>
 </template>
 
@@ -54,13 +54,17 @@ import SupportIco from '@/components/support-ico/Support-ico'
 import ShopCart from '@/components/shop-cart/Shop-cart.vue'
 import CartControl from '@/components/cart-control/Cart-control'
 export default {
+  props: {
+    seller: {
+      type: Object
+    }
+  },
   data() {
     return {
       goods: [],
       // currentIndex: 0,
       listHeight: [],
       scrollY: 0
-
     }
   },
   components: {
@@ -82,6 +86,16 @@ export default {
     },
     selectFoods() {
       let foods = []
+      for (let good of this.goods) {
+        if (good.foods) {
+          for (let food of good.foods) {
+            if (food.count) {
+              foods.push(food)
+            }
+          }
+        }
+      }
+      return foods
     }
   },
   created() {
