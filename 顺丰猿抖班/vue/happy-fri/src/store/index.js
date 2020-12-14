@@ -168,7 +168,7 @@ const state = {
       "is_standard_answer": 0
     }]
   }],
-  answerId: [] // 答案的id
+  answerId: [], // 答案的id
 }
 export default new Vuex.Store({
   state,

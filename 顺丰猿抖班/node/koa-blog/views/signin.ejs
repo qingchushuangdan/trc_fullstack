@@ -1,0 +1,25 @@
+<%- include('header', {type: 'signin'})%>
+<div class="container">
+  <form method="post" class="form create">
+    <div>
+      <label for="">用户名:</label>
+      <input type="text" placeholder="用户名" name="name">
+    </div>
+    <div>
+      <label for="">密码:</label>
+      <input type="text" placeholder="密码" name="password">
+    </div>
+    <div class="submit">登录</div>
+  </form>
+</div>
+
+<script>
+  $('.submit').click(function() {
+    if ($('input[name=name]').val().trim() == '') {
+      fade('请输入用户名或密码')
+    } else {
+      console.log($('.form').serialize);
+    }
+  })
+</script>
+<% include footer>

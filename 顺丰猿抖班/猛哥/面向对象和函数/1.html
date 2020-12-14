@@ -1,0 +1,51 @@
+<script>
+  let url = 'http://www.baidu.com/s?keyword=js&lang=java'
+  // url 由什么组成
+  // 协议
+  // {
+  //   keyword: 'js',
+  //   lang: 'java'
+  // }
+  function parseQuery(url) {
+    let obj = {}
+    let isQuery = url.indexOf('?') >= 0
+    if (isQuery) {
+      let queryString = url.slice(url.indexOf('?'))
+      let querys = queryString.split('&')
+      // [xx=xx, xxx=xxx, x=x]
+      querys.forEach(kv => {
+        // [key, value]
+        let [k, v] = kv.split('=')
+        obj[k] = v
+      })
+    }
+    return obj
+  }
+
+  function parseProtoCol(url) {
+    return url.split(':')[0]
+  }
+
+  class URL {
+    parseQuery() {
+      let url = this.url
+      let obj = {}
+      let isQuery = url.indexOf('?') >= 0
+      if (isQuery) {
+        let queryString = url.slice(url.indexOf('?'))
+        let querys = queryString.split('&')
+        // [xx=xx, xxx=xxx, x=x]
+        querys.forEach(kv => {
+          // [key, value]
+          let [k, v] = kv.split('=')
+          obj[k] = v
+        })
+      }
+      return obj
+    }
+    parseProtoCol() {
+      let url = this.url
+      return url.split(':')[0]
+    }
+  }
+</script>

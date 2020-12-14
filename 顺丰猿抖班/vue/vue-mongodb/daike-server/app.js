@@ -3,8 +3,15 @@ const app = new Koa()
 const cors = require('koa2-cors')
 const bodyParser = require('koa-bodyParser')
 const mongoose = require('mongoose') // 做mongodb的连接
+const config = require('./config')
 // 建立mongodb的连接
-mongoose.connect('')
+mongoose.connect(config.db, {useNewUrlParser: true}, (err) => {
+  if (err) {
+    console.error('failed');
+  } else {
+    console.log('connect database successfully');
+  }
+})
 
 app.use(cors()) // 解决跨域
 app.use(bodyParser()) // 帮助koa解析参数
