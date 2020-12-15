@@ -1,8 +1,14 @@
 <template>
   <div class="star-login">
-    <h1>登录</h1>
+    <h1>注册</h1>
     <div class="login-wrapper">
-      <div class="avatar" :style="`backgroundImage: url(${avatar})`"></div>
+      <div class="avatar" :style="`background-image: url(${avatar})`"></div>
+
+      <div class="input-group">
+        <label for="username">昵称</label>
+        <input type="text" id="nickname" v-model="nickname" />
+      </div>
+
       <div class="input-group">
         <label for="username">账号</label>
         <input type="text" id="username" v-model="username" />
@@ -12,10 +18,10 @@
         <label for="userpwd">密码</label>
         <input type="password" id="userpwd" v-model="userpwd" />
       </div>
-      <p class="forgot-pwd">忘记密码</p>
-      <div class="sign" @click="login">登录</div>
+
+      <div class="sign" @click="register">注册</div>
     </div>
-    <p class="register" @click="register">新用户？点击这里注册</p>
+    <p class="register" @click="login">已有账号？点击登录</p>
   </div>
 </template>
 
@@ -23,38 +29,43 @@
 export default {
   data() {
     return {
-      avatar: require("./../../assets/img/avatar.jpg"),
+      avatar: require("./../../assets/img/raw_1512446140.jpeg"),
       username: "",
       userpwd: "",
+      nickname: "",
     };
   },
   methods: {
-    login() {
-      if (this.username.trim() == "" || this.userpwd.trim() == "") {
-        this.$toast("账号密码不能为空");
+    register() {
+      // 拿到注册信息，
+      // 发起接口请求
+      if (this.nickname.trim() == "" || this.nickname.trim() == null) {
+        this.$toast("请输入账号");
         return;
       }
-    
-      // 发接口请求
-      // 发送 POST 请求
-      this.$http({
+      if (this.username.trim() == "" || this.username.trim() == null) {
+        this.$toast("请输入账号");
+        return;
+      }
+      if (this.userpwd.trim() == "" || this.userpwd.trim() == null) {
+        this.$toast("请输入密码");
+        return;
+      }
+       this.$http({
         method: "post",
-        url: this.$util.baseUrl + "users/userLogin",
+        url: this.$util.baseUrl + "users/userRegister",
         data: {
+          nickname: this.nickname.trim(),
           username: this.username.trim(),
           userpwd: this.userpwd.trim(),
         },
-      }).then((res) => {
-        if (res.data.code === "80000") {
-          console.log(res);
-          sessionStorage.setItem("userInfo", JSON.stringify(res.data.data));
-          this.$router.push("/noteClass");
-        }
-      });
+      }).then(res => {
+        console.log(res);
+      })
     },
-    register() {
-      this.$router.push('/starRegister')
-    }
+    login() {
+      this.$router.push("/starLogin");
+    },
   },
 };
 </script>
@@ -104,6 +115,7 @@ input {
       display: flex;
       margin: 0 auto;
       opacity: 0.5;
+      margin-top: 10px;
       border-radius: 0.533333rem;
       border: 1px solid rgba(187, 187, 187, 1);
       padding-left: 0.533333rem;

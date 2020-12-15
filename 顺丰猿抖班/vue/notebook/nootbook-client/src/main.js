@@ -17,6 +17,11 @@ Vue.config.productionTip = false
 Vue.prototype.$http = axios
 Vue.prototype.$util = util
 
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
+})
+
 new Vue({
   router,
   store,
