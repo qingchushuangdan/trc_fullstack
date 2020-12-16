@@ -40,7 +40,7 @@ export default {
       // 拿到注册信息，
       // 发起接口请求
       if (this.nickname.trim() == "" || this.nickname.trim() == null) {
-        this.$toast("请输入账号");
+        this.$toast("请输入昵称");
         return;
       }
       if (this.username.trim() == "" || this.username.trim() == null) {
@@ -61,6 +61,11 @@ export default {
         },
       }).then(res => {
         console.log(res);
+        if (res.data.code == '80009') {
+          this.$router.push('/starLogin')
+        } else {
+          this.$toast(res.data.mess)
+        }
       })
     },
     login() {

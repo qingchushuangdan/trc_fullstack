@@ -20,7 +20,39 @@ const routes = [
     meta: {
       title: '注册'
     }
-  }
+  },
+  {
+    path: '/noteClass',
+    name: 'noteClass',
+    component: () => import('@/views/noteClass/index'),
+    meta: {
+      title: '分类'
+    },
+  },
+  {
+    path: '/noteList',
+    name: 'noteList',
+    component: () => import('@/views/noteList/index'),
+    meta: {
+      title: '列表'
+    }
+  },
+  {
+    path: '/noteDetail',
+    name: 'noteDetail',
+    component: () => import('@/views/noteDetail/index'),
+    meta: {
+      title: '详情'
+    }
+  },
+  {
+    path: '/noteEdit',
+    name: 'noteEdit',
+    component: () => import('@/views/noteEdit/index'),
+    meta: {
+      title: '文本编辑器'
+    }
+  },
 ]
 
 const router = new VueRouter({
