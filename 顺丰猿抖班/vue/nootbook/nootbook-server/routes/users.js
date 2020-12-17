@@ -12,8 +12,8 @@ router.prefix('/users')
 // })
 
 // 注册
-router.post('/userRegister', async(ctx, next) => {
-  let _username  = ctx.request.body.username;
+router.post('/userRegister', async (ctx, next) => {
+  let _username = ctx.request.body.username;
   let _userpwd = ctx.request.body.userpwd;
   let _nickname = ctx.request.body.nickname;
   // console.log(_username, _userpwd, _nickname);
@@ -55,8 +55,8 @@ router.post('/userRegister', async(ctx, next) => {
 })
 
 // 登录
-router.post('/userLogin', async(ctx, next) => {
-  let _username  = ctx.request.body.username;
+router.post('/userLogin', async (ctx, next) => {
+  let _username = ctx.request.body.username;
   let _userpwd = ctx.request.body.userpwd;
 
   // 把参数拿到数据库里查询
@@ -92,7 +92,7 @@ router.post('/userLogin', async(ctx, next) => {
 })
 
 // 根据分类查找对应的文章列表
-router.post('/findNoteListByType', async(ctx, next) => {
+router.post('/findNoteListByType', async (ctx, next) => {
   let note_type = ctx.request.body.note_type
   await userService.findNoteListByType(note_type).then(async (res) => {
     // console.log(res);
@@ -116,33 +116,59 @@ router.post('/findNoteListByType', async(ctx, next) => {
 })
 
 // 根据id查找对应的文章详情
-router.post('/findNoteDetailById',async (ctx, next) => {
+router.post('/findNoteDetailById', async (ctx, next) => {
   let note_id = ctx.request.body.note_id
   // console.log(note_type);
   await userService.findNoteDetail(note_id).then(res => {
     // console.log(res);
     let r = ''
     if (res.length) {
-        r = 'ok'
-        ctx.body = {
-          code: '80000',
-          data: res[0],
-          mess: '查找成功'
+      r = 'ok'
+      ctx.body = {
+        code: '80000',
+        data: res[0],
+        mess: '查找成功'
       }
     } else {
       r = 'error'
       ctx.body = {
-        code:'80004',
-        mess:'暂无数据'
+        code: '80004',
+        mess: '暂无数据'
       }
     }
   })
 })
 
 // 发布笔记
-router.post('/insertNote', async() => {
-  
+router.post('/insertNote', async (ctx, next) => {
+  // console.log(ctx)
+  let note_content = ctx.request.body.note_content
+  let title = ctx.request.body.title
+  let note_type = ctx.request.body.note_type
+  let head_img = ctx.request.body.head_img
+  let userId = ctx.request.body.userId
+  let nickname = ctx.request.body.nickname
+  await userService.insertNote(note_content, title, note_type, head_img, userId, nickname).then(res => {
+    console.log(res);
+    let r = '';
+    if (res.length) {
+      r = 'ok'
+      ctx.body = {
+        code: '80000',
+        data: r,
+        mess: '发表成功'
+      }
+    } else {
+      r = 'error'
+      ctx.body = {
+        code: '80004',
+        data: r,
+        mess: '发表失败'
+      }
+    }
+  })
 })
+// let _sql = `insert into note set note_content=?,title=?,note_type=?,head_img=?,userId=?,nickname=?;`
 
 
 module.exports = router

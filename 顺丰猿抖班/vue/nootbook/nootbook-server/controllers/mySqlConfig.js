@@ -62,12 +62,18 @@ let findNoteDetail = function(id) {
 }
 
 // 发布笔记
+let insertNote = function(note_content, title, note_type, head_img, userId, nickname) {
+  let _sql = `insert into note set note_content="${note_content}",title="${title}",note_type="${note_type}",head_img="${head_img}",useId="${userId}",nickname="${nickname}";`
+  // let _sql = `insert into note set note_content=?,title=?,note_type=?,head_img=?,userId=?,nickname=?;`
 
+  return allServices.query(_sql)
+}
 
 module.exports = {
   userLogin,
   findUser,
   insertUser,
   findNoteListByType,
-  findNoteDetail
+  findNoteDetail,
+  insertNote
 }
