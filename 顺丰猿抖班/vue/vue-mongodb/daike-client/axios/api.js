@@ -42,7 +42,7 @@ export default function $axios(options) {
         } else {
           data = response.data
         }
-        data = JSON.parse(data)
+        // data = JSON.parse(data)
         const message = data.msg || 'Error'
         switch (data.code) {
           case 0:
