@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    span {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <a href="#">
+    <span>hello</span>
+  </a>
+</body>
+<script>
+  for (let i = 0; i < 1000; i++) {
+    console.log(document.querySelector('.test').style.offsetTop);
+  }
+</script>
+</html>
