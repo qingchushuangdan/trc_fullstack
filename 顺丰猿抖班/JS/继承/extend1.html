@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 原型链的继承
+    function Parent() {
+      this.names = ['jiushen', 'ceo']
+    }
+    // Parent.prototype.getName = function() {
+    //   console.log(this.name);
+    // }
+    function Child() {
+
+    }
+    Child.prototype = new Parent() // 原型写成了一个对象是唯一的 { names: ['jiushen', 'ceo'] }
+    let child1 = new Child()
+    child1.names.push('cong')
+    console.log(child1);
+    let child2 = new Child()
+    console.log(child2);
+// child.getName()
+  </script>
+</body>
+
+</html>

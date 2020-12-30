@@ -1,0 +1,23 @@
+<script>
+  // 组合继承,js里面最常用的继承，
+  function Parent(name) {
+    this.name = name
+    this.colors = ['red', 'blue', 'green']
+  }
+  Child.prototype = new Parent()
+  function Child(name, age) {
+    Parent.call(this, name)
+    this.age = age
+  }
+  let child1 = new Child('jiushen', '18')
+  child1.colors.push('yellow')
+  console.log(child1.name); // jiushen
+  console.log(child1.age); // 18
+  console.log(child1.colors); // ['red', 'blue', 'green', 'yellow']
+
+  let child2 = new Child('ceo', '19')
+  console.log(child2.name); // ceo
+  console.log(child2.age); // 19
+  console.log(child2.colors); // ['red', 'blue', 'green', 'yellow']
+  // 避免了引用类型的属性被所有实例共享(用原型链就会共享)
+</script>
