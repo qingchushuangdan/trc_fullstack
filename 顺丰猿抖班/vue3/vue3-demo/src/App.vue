@@ -6,7 +6,16 @@
   <ul>
     <Fragment :data="[5, 3, 4, 1, 8, 9, 2]" />
   </ul> -->
-  <TeleportDemo/>
+  <!-- <TeleportDemo/> -->
+  <!-- <Suspense>
+    <template #default>
+      <AsyncComponent :timeout="3000" />
+    </template>
+    <template #fallback>
+      <Loading />
+    </template>
+  </Suspense> -->
+  <TodoList />
 
 </template>
 
@@ -14,7 +23,10 @@
 // composition api 1.reactive 2.computed 3.ref
 import { reactive, computed, ref, onMounted } from 'vue' // 用这个api把想要的数据变成响应式的数据
 // import Fragment from '@/components/fragment'
-import TeleportDemo from '@/components/teleport'
+// import TeleportDemo from '@/components/teleport'
+// import AsyncComponent from '@/components/AsyncComponent'
+// import Loading from '@/components/loading'
+import TodoList from '@/components/TodoList'
 export default {
   setup() { //所有vue代码要生效的话，必须要写在setup里面，这是入口
     // const state = reactive({
@@ -35,7 +47,11 @@ export default {
   },
   components: {
     // Fragment,
-    TeleportDemo
+    // TeleportDemo
+    // AsyncComponent,
+    // Loading
+    TodoList
+    
   }
 }
 function useCounter (count) { //把某一功能单独拎出来写成一个函数
