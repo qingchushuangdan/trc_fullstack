@@ -2,11 +2,11 @@
   <div class="nav-bar van-hairline--top">
     <ul class="nav-list">
       <router-link tag="li" class="nav-list-item active" to="home">
-        <i class="iconfont icon-shouye"></i>
+        <i class="iconfont icon-home"></i>
         <span>首页</span>
       </router-link>
       <router-link tag="li" class="nav-list-item" to="category">
-        <i class="iconfont icon-leimupinleifenleileibie"></i>
+        <i class="iconfont icon-category"></i>
         <span>分类</span>
       </router-link>
       <router-link tag="li" class="nav-list-item" to="cart">
@@ -14,7 +14,7 @@
         <span>购物车</span>
       </router-link>
       <router-link tag="li" class="nav-list-item" to="user">
-        <i class="iconfont icon-wode"></i>
+        <i class="iconfont icon-Serviceusers"></i>
         <span>我的</span>
       </router-link>
     </ul>

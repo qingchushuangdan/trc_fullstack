@@ -13,12 +13,13 @@ export default {
   },
   setup(props) {
     function goTo(url) {
-      window.open()
+      window.open(url)
     }
+
     return {
       goTo
     }
-  } 
+  }
 }
 </script>
 
