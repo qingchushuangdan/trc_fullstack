@@ -1,64 +1,78 @@
 <template>
   <div class="star-login">
-    <h1>登录</h1>
+    <h1>注册</h1>
     <div class="login-wrapper">
       <div class="avatar" :style="`background-image: url(${avatar})`"></div>
 
       <div class="input-group">
+        <label for="nickname">昵称</label>
+        <input type="text" id="nickname" v-model="nickname">
+      </div>
+
+      <div class="input-group input-group-panel">
         <label for="username">账号</label>
-        <input type="text" id="username" v-model="username" />
+        <input type="text" id="username" v-model="username">
       </div>
 
       <div class="input-group input-group-panel">
         <label for="userpwd">密码</label>
-        <input type="password" id="userpwd" v-model="userpwd" />
+        <input type="password" id="userpwd" v-model="userpwd">
       </div>
 
-      <p class="forgot-pwd">忘记密码</p>
-      <div class="sign" @click="login">登录</div>
+      <div class="sign" @click="register">注册</div>
     </div>
-    <p class="register" @click="register">新用户？点击这里注册！</p>
+    <p class="register" @click="login">已有账号？点击登录</p>
   </div>
 </template>
 
-
 <script>
 export default {
-  data() {
+  data () {
     return {
       avatar: require('./../../assets/img/raw_1512446140.jpeg'),
+      nickname: '',
       username: '',
       userpwd: ''
-    };
+    }
   },
   methods: {
-    login () {
-      if (this.username.trim() == "" || this.userpwd.trim() == "") {
-        // console.log(111);
-        this.$toast('账号和密码不能为空');
-        return
+    register() {
+      // 拿到注册信息
+      // 发起请求
+      if(this.nickname.trim() == "" || this.nickname.trim() == null){
+        this.$toast('请输入账号');
+        return ;
       }
-      // 发接口请求
+      if(this.username.trim() == "" || this.username.trim() == null){
+        this.$toast('请输入账号');
+        return ;
+      }
+      if(this.userpwd.trim() == "" || this.userpwd.trim() == null){
+        this.$toast('请输入密码');
+        return ;
+      }
       this.$http({
         method: 'post',
-        url: this.$util.baseUrl + 'users/userLogin',
+        url: this.$util.baseUrl+'users/userRegister',
         data: {
+          nickname: this.nickname.trim(),
           username: this.username.trim(),
           userpwd: this.userpwd.trim()
         }
       }).then(res => {
-        if (res.data.code === '80000') {
-          console.log(res);
-          sessionStorage.setItem('userInfo', JSON.stringify(res.data.data))
-          this.$router.push('/index')
+        console.log(res);
+        if (res.data.code === "80000") {
+          this.$router.push('/starLogin')
+        } else {
+          this.$toast(res.data.mess)
         }
       })
     },
-    register () {
-      this.$router.push('/Register')
+    login() {
+      this.$router.push('/starLogin')
     }
   }
-};
+}
 </script>
 
 <style lang="less" scoped>
@@ -129,28 +143,29 @@ input {
     .input-group-panel {
       margin-top: 10px;
     }
-    .forgot-pwd {
-      margin: 10px auto 0.56rem 1.973333rem;
-      height: 0.613333rem;
-      line-height: 0.453333rem;
-      opacity: 0.3;
-      color: rgba(16, 16, 16, 1);
-      font-size: 0.32rem;
-      font-family: Arial;
+    .forgot-pwd{
+        margin:10px auto .56rem 1.973333rem; 
+        height: .613333rem;
+        line-height: .453333rem;
+        opacity: 0.3;
+        color: rgba(16, 16, 16, 1);
+        font-size: .32rem;
+        font-family: Arial;
     }
-    .sign {
-      margin: 0 auto;
-      width: 5.546667rem;
-      height: 1.226667rem;
-      line-height: 1.226667rem;
-      border-radius: 0.533333rem;
-      background-color: rgba(51, 54, 67, 1);
-      text-align: center;
-      left: 169px;
-      opacity: 0.8;
-      color: rgba(255, 255, 255, 1);
-      font-size: 0.48rem;
-      font-family: Arial;
+    .sign{
+        margin: 0 auto;
+        width: 5.546667rem;
+        height: 1.226667rem;
+        line-height: 1.226667rem;
+        border-radius: .533333rem;
+        background-color: rgba(51, 54, 67, 1);
+        text-align: center;
+        left: 169px;
+        opacity: 0.8;
+        color: rgba(255, 255, 255, 1);
+        font-size: .48rem;
+        font-family: Arial;
+        margin-top: 10px;
     }
   }
   .register {

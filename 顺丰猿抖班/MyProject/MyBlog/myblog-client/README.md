@@ -1,4 +1,4 @@
-# myblog-client
+# nootbook-client
 
 ## Project setup
 ```

@@ -2,13 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import 'amfe-flexible'
-import { Toast, Icon } from 'vant'
-import 'vant/lib/index.css'
 import axios from 'axios'
 import util from './assets/js/util'
 
-Vue.use(Toast).use(Icon);
+import 'amfe-flexible'
+import { Swipe, SwipeItem, Toast, Icon, Field, Uploader, Picker, ActionSheet } from 'vant';
+import 'vant/lib/index.css';
+
+Vue.use(Swipe).use(SwipeItem).use(Toast).use(axios).use(Icon).use(Field).use(Uploader).use(Picker).use(ActionSheet);
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
