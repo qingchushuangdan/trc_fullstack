@@ -3,8 +3,9 @@
     <div class="note-class" :class="{ 'isClickMenu-note': isClickMenu_note }">
       <header>
         <div @click="menu"><van-icon name="wap-nav" size="20px" /></div>
+        <div class="maintitle">自学随记</div>
         <div>
-          <van-icon name="like" size="20px" @click="noteEdit"/>
+          <!-- <van-icon name="like" size="20px" @click="noteEdit"/> -->
           <van-icon name="search" size="20px" />
         </div>
       </header>
@@ -71,25 +72,25 @@ export default {
       avatar: require("./../../assets/img/raw_1512446140.jpeg"),
       username: "KiKa",
       noteClassList: [
-        {
-          img: require("./../../assets/img/raw_1512446214.jpeg"),
-          title: "美食",
-        },
-        {
-          img: require("./../../assets/img/raw_1512446225.jpeg"),
+         {
+          img: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1001563571,3836450236&fm=26&gp=0.jpg",
           title: "旅行",
         },
         {
-          img: require("./../../assets/img/raw_1512446234.jpeg"),
+          img: "https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2746301821,2532259490&fm=26&gp=0.jpg",
+          title: "篮球",
+        },
+        {
+          img: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=870891007,1373218082&fm=11&gp=0.jpg",
           title: "汽车",
         },
         {
-          img: require("./../../assets/img/raw_1512446243.jpeg"),
-          title: "时尚",
+          img: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=524004379,1741860927&fm=26&gp=0.jpg",
+          title: "科技",
         },
         {
-          img: require("./../../assets/img/raw_1512446251.jpeg"),
-          title: "科技",
+          img: "https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4090661222,245479821&fm=15&gp=0.jpg",
+          title: "学习",
         },
       ],
     };
@@ -107,8 +108,8 @@ export default {
       this.$router.push({ path: "/noteList", query: { title: title } });
     },
     noteEdit() {
-      this.$router.push('/noteEdit')
-    }
+      this.$router.push("/noteEdit");
+    },
   },
 };
 </script>
@@ -251,4 +252,12 @@ export default {
     transform: translateX(0%);
   }
 }
+.maintitle {
+  font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  margin-top: 3px;
+}
+
 </style>

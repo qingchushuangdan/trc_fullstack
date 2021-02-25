@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/starLogin',
+    path: '/',
     name: 'starLogin',
     component: StarLogin,
     meta: {
