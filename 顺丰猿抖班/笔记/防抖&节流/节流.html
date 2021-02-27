@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        // 时间戳实现
+        // 在第一次触发事件时立即执行，以后每过t秒之后才执行与一次，且最后一次触发事件不会背执行
+        var throttle = function(fn, t) {
+            var prev = Date.now()
+            return function () {
+                var context = this
+                var args = arguments
+                var now = Date.now()
+                if (now - prev >= t) {
+                    fn.apply(context, args)
+                    prev = Date.now()
+                }
+            }
+        }
+
+        function foo() {
+            console.log('e')
+        }
+        window.addEventListener('resize', throttle(foo, 1000))
+    </script> -->
+
+    <!-- <script>
+        // 定时器实现
+        // 在第一次触发时不会执行，而是在t秒之后才执行，当最后一次停止触发后，还会再执行一次函数。
+        var throttle = function (fn, t) {
+            var timer = null
+            return function () {
+                var context = this 
+                var args = arguments
+
+                if (!timer) {
+                    timer = setTimeout(() => {
+                        fn.apply(context, args)
+                        timer = null  // 定时器清除
+                    }, 1000)
+                }
+            }
+        }
+        function foo() {
+            console.log('e')
+        }
+        window.addEventListener('resize', throttle(foo, 1000))
+    </script> -->
+
+
+    <script>
+        // 设置是否立即执行， 当immediate为true时使用时间戳立即执行，为false时使用定时器缓执行
+        function throttle(fn, t, immediate) {
+           if (immediate === true) {
+                var prev = 0
+           } else {
+               var timer = null
+           }
+           return function() {
+               var context = this
+               var args = arguments
+               if (immediate === true) {
+                    var now = Date.now()
+                    if (now - prev >= t) {
+                        fn.apply(context, args)
+                        prev = Date.now()
+                    }
+               } else {
+                   if (!timer) {
+                       timer = setTimeout(() => {
+                           fn.apply(context. args)
+                           timer = null 
+                       }, t)
+                   }
+               }
+           }
+        }
+        function foo() {
+            console.log('e')
+        }
+        window.addEventListener('resize', throttle(foo, 1000, true))
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 方法一：display: inline-block + text-align: center */
+        /* .parent {
+            width: 100%;
+            height: 200px;
+            background: red;
+            text-align: center;
+        }
+        .child {
+            width: 300px;
+            height: 200px;
+            background: yellow;
+            display: inline-block;
+        } */
+        /*display: block：块级元素； inline：内联元素(ta有效)+width 和 height属性无效； inline-block: 行内块元素(块级 + 内联))*/
+        /* 注意： 浏览器兼容性比较好，但是tac属性具有继承性，导致子级元素的文本居中显示（可在子级元素重新设置ta属性将tac覆盖） */
+
+
+        /* 方法二： display: table或者block + margin: 0 auto*/
+        /* .parent {
+            width: 100%;
+            height: 200px;
+            background: red;
+            display: table;
+        }
+        .child {
+            width: 300px;
+            height: 200px;
+            background: yellow;
+            margin: 0 auto;
+        } */
+        /*margin: (外边距) 一个值：上下左右； 两个值：上下，左右+auto根据浏览器自动分配；三个值：上，左右，下；四个值：上，右，下，左*/
+        /* 注意：只需对子级元素进行设置就可以实现水平居中；但是如果子级元素脱离文档流，导致margin属性失效 */
+        
+
+        /*方法三： absolute + transform*/
+        .parent {
+            width: 100%;
+            height: 200px;
+            background: red;
+            position: relative;
+        }
+        .child {
+            width: 300px;
+            height: 200px;
+            background: yellow;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+        /*子元素设置绝对定位后，当父元素没有设置定位，子元素是相对于页面定位的；当父元素设置了，当前元素是相对于父元素定位的*/
+        /*注意： 无论父元素还是子元素是否脱离文档流，不影响子级元素水平居中的效果；但是transform是scc3中新增属性，浏览器支持情况不好*/
+    </style>
+</head>
+<body>
+    <!-- 水平居中布局: 元素相对于页面/元素相对于父元素水平居中 -->
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>
+</html>

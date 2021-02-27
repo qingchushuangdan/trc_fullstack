@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*根据父容器设置的固定大小正方形*/
+        /* .main {
+            width: 100px;
+            height: 200px;
+        }
+        .wrap{
+            width: 100%;
+            padding-bottom: 100%;
+            background: red;
+        } */
+
+        /*内部自适应的正方形*/
+        .main {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrap {
+            width: 50%;
+            padding-bottom: 50%;
+            background: red;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="wrap"></div>
+    </div>
+</body>
+</html>

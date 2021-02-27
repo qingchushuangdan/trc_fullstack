@@ -1,0 +1,29 @@
+<script>
+    function module() {
+        var arr = [];
+        function add(val) {
+            if (typeof val == 'number') {
+                arr.push(val);  // 此时的val传入到add函数里面，满足条件下会将val进行push到arr里面，
+                // 但此函数并未将arr返回抛出，无法改变此函数词法作用域外的arr的值
+            }
+            // return arr
+        }
+        function get(index) {
+            if (index < arr.length) {
+                return arr[index]
+            } else {
+                return null;
+            }
+        }
+        return {
+            add: add,
+            get: get
+        }
+        
+    }
+    var mod1 = module();
+    console.log(mod1.add(1)); // undefined
+    console.log(mod1.add(2)); //undefined
+    console.log(mod1.add('xxx')); // undefined
+    console.log(mod1.get(2)); // null
+</script>

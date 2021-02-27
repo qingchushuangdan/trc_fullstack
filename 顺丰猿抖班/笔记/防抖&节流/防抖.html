@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        // 非立即执行，只有最后此役触发事件才生效
+        // debounce函数接收一个函数和延迟执行的时间作为参数
+        function debounce(fn, t) {
+            // 维护一个 timer
+            let timer = null
+            return function() {
+                // 获取函数的作用域和变量
+                let context = this;
+                let args = arguments
+
+                // 定时器清除
+                clearTimeout(timer)
+
+                timer = setTimeout(() => {
+                    fn.apply(context, args)
+                }, t)
+            }
+        }
+        function foo() {
+            console.log('e')
+        }
+        // 监听窗口变化，并执行debounce函数，在debounce中包装foo函数，过2秒触发一次
+        window.addEventListener('resize', debounce(foo, 1000))
+    </script> -->
+
+    <script>
+        // 选择性是否立即执行  
+        // 表示最开始触发的那个事件生效，只有当定时器时间t过后的第一次触发才会再次生效
+        function debounce(fn, t, immediate) {
+            var timer = null
+            return function() {
+                // 获取函数作用域和变量
+                var context = this
+                var args = arguments
+
+                // 当有触发定时器时，清除定时器
+                if (timer) clearTimeout(timer)
+
+                // 当immediate传入值为true时立即执行,false为非立即执行
+                if (immediate) {
+                    var doNow = !timer
+                    timer = setTimeout(() => {
+                        timer = null
+                    }, t)
+                    if (doNow) {
+                        fn.apply(context, args)
+                    }
+                } else {
+                    timer = setTimeout(() => {
+                        fn.apply(context, args)
+                    }, t)
+                }
+            }
+        }
+        function foo() {
+            console.log('e')
+        }
+        window.addEventListener('resize', debounce(foo, 1000, true))
+    </script>
+
+
+
+</body>
+</html>

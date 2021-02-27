@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            display: flex;
+            width: 100px;
+        }
+        .w1 {
+            width: 50px;
+            background: red;
+        }
+        .w2 {
+            flex: 1 0 100px;
+            /* flex: 1 1 150px; */
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="w1">1</div>
+        <div class="w2">2</div>
+    </div>
+</body>
+</html>

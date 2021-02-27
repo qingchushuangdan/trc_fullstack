@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="a">
+        <div>b</div>
+        <div>c</div>
+    </div>
+    <script>
+        var a = document.getElementById('a')
+        // a.addEventListener('click', (e) => {'捕获', console.log(e.target.innerHTML)}, true)
+        a.addEventListener('click', (e) => {'冒泡', console.log(e.target.innerHTML)}, false)
+    </script>
+</body>
+</html>

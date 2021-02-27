@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a {
+            background: red;
+            width: 100%;
+            height: 300px;
+        }
+
+        .b {
+            background: green;
+            width: 100%;
+            height: 200px;
+        }
+
+        .c {
+            background: yellow;
+            width: 100%;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="a" class="a">
+        a
+        <div id="b" class="b">
+            b
+            <div id="c" class="c">
+                c
+            </div>
+        </div>
+    </div>
+    <script>
+        var a = document.getElementById('a')
+        var b = document.getElementById('b')
+        var c = document.getElementById('c')
+        a.addEventListener('click', () => {console.log("冒泡a")})
+        b.addEventListener('click', () => {console.log('冒泡b')})
+        c.addEventListener('click', () => {console.log("捕获c")}, true)
+        c.addEventListener('click', () => {console.log("冒泡c")})
+        a.addEventListener('click', () => {console.log("捕获a")}, true)
+        b.addEventListener('click', () => {console.log('捕获b')}, true)
+        // c.addEventListener('click', () => {console.log("捕获c")}, true)
+        // 捕获a  捕获b 捕获c 冒泡c 冒泡b 冒泡a
+
+
+        
+        function mergeArray(arr1,arr2){
+	var ind1=0; //标记arr1的对比元素的初始索引值
+	var ind2=0; //标记arr2的对比元素的初始索引值
+	var arr=[]; //作为输出的新数组
+	while(ind1<arr1.length && ind2<arr2.length){ 
+        //当arr1和arr2元素均未全部存入arr中，则从第一个元素开始进行比较，将较小的那个元素存入arr
+		if(arr1[ind1]<=arr2[ind2]){
+			arr.push(arr1.slice(ind1,ind1+1)[0]); //若arr1的对比元素小于arr2的对比元素，则将arr1的对比元素存入arr中
+			ind1++;
+		}else{
+			arr.push(arr2.slice(ind2,ind2+1)[0]);
+			ind2++;
+		}
+	}
+	while(ind1<arr1.length){ //当arr2的元素已全部存入arr中，则直接将arr1剩余的所有元素依次存入arr
+		arr.push(arr1.slice(ind1,ind1+1)[0]);
+		ind1++;
+	}
+	while(ind2<arr2.length){ //当arr1的元素已全部存入arr中,则直接将arr2剩余的所有元素依次存入arr
+		arr.push(arr2.slice(ind2,ind2+1)[0]);
+		ind2++;
+	}
+	return arr;
+}
+
+    </script>
+</body>
+
+</html>

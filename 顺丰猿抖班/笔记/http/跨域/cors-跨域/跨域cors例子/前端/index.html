@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // xhr fetch 两种
+        // 简单请求  非简单请求
+        // 非简单请求：
+        // 1.preflight 预检请求（试探一下 是否允许跨域）
+        // 2.预检请求通过 才会发出 正式请求
+        const xhr = new XMLHttpRequest()
+        xhr.open("POST", "http://127.0.0.1:9090/", true)
+        let user = {
+            nam: 'name',
+            pwd: 'pwd'
+        }
+        xhr.setRequestHeader('Content-Type', 'application/json')
+        xhr.onload = function() {
+            console.log(xhr.response)
+            console.log(xhr.getAllResponseHeaders())
+        }
+        xhr.send(JSON.stringify(user))  // 将数据发送给后端
+    </script>
+</body>
+</html>
