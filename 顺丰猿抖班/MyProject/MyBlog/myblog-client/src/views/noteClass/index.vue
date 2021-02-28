@@ -5,8 +5,8 @@
         <div @click="menu"><van-icon name="wap-nav" size="20px" /></div>
         <div class="maintitle">自学随记</div>
         <div>
-          <!-- <van-icon name="like" size="20px" @click="noteEdit"/> -->
-          <van-icon name="search" size="20px" />
+          <van-icon name="records" size="25px" @click="noteEdit" />
+          <van-icon name="search" size="25px" />
         </div>
       </header>
       <section>
